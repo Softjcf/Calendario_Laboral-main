@@ -4,8 +4,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+
     return {
-      base: "/Calendario_Laboral-main/",
+      // GitHub Pages servirá la app bajo /Calendario_Laboral-main/
+      base: '/Calendario_Laboral-main/',
       server: {
         port: 3000,
         host: '0.0.0.0',
