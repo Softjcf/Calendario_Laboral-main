@@ -7,6 +7,7 @@ import { CompanyData, Holiday, HolidayType } from './types';
 import { getCommonHolidays, getIslandHolidays, getMunicipalities } from './constants';
 import { generatePDF } from './services/pdfService';
 import { Printer, Download, RotateCcw } from 'lucide-react';
+import watermark from './src/assets/Logotiposbc.PNG';
 
 const App: React.FC = () => {
   const [year, setYear] = useState<number>(2026);
@@ -186,6 +187,22 @@ const App: React.FC = () => {
           <div className="absolute bottom-1 left-0 w-full text-center text-[7px] text-blue-300 no-print">
             Festivos calculados para {year} según normativa de la CA de Canarias.
           </div>
+
+          {/* Marca de agua */}
+          <img
+            src={watermark}
+            alt="Marca de agua"
+            className="pointer-events-none select-none"
+            style={{
+              position: 'absolute',
+              top: '2mm',
+              left: '60%',
+              transform: 'translateX(-50%)',
+              width: '80mm',
+              opacity: 0.15,
+              zIndex: 0
+            }}
+          />
         </div>
 
       </div>
